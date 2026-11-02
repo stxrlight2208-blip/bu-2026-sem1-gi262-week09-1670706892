@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Assignment
 {
@@ -97,12 +98,29 @@ namespace Assignment
 
         public string ASN01_ReverseString(string str)
         {
-            throw new NotImplementedException();
+            char[] chars = str.ToCharArray();
+            Array.Reverse(chars);
+            return new string(chars);
         }
 
         public bool ASN02_StackPalindrome(string str)
         {
-            throw new NotImplementedException();
+            Stack<char> stack = new Stack<char>();
+
+            foreach (char c in str)
+            {
+                stack.Push(c);
+            }
+
+            foreach (char c in str)
+            {
+                if (stack.Pop() != c)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         #endregion
